@@ -351,7 +351,7 @@ const SellerInbox = ({
             >
               {item.sender !== sellerId && (
                 <img
-                  src={`${backend_url}/${userData?.avatar?.url}`}
+                  src={`${userData?.avatar?.url}`}
                   alt=""
                   className="w-[40px] h-[40px] rounded-full mr-3"
                 />
