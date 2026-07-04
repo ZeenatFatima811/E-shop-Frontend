@@ -109,7 +109,7 @@ const Header = ({ activeHeading }) => {
                       <Link to={`/product/${i._id}`}>
                         <div className="w-full flex items-start py-3">
                           <img
-                            src={`${backend_url}/${i.images?.[0]}`}
+                            src={`${i.images?.[0].url}`}
                             alt=""
                             className="w-[40px] h-[40px] mr-[10px]"
                           />
@@ -274,7 +274,7 @@ const Header = ({ activeHeading }) => {
                       onClick={() => setOpenWishList(true)}
                     />
                     <span className="absolute right-0 top-0 rounded-full bg-[#E76F51] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
-                      0
+                      {wishlist && wishlist.length}
                     </span>
                   </div>
                 </div>
@@ -301,7 +301,7 @@ const Header = ({ activeHeading }) => {
                           <Link to={`/product/${i._id}`}>
                             <div className="w-full flex items-start-py-3">
                               <img
-                                src={`${backend_url}/${i.images?.[0]}`}
+                                src={`${i.images?.[0].url}`}
                                 alt=""
                                 className="w-[40px] h-[40px] mr-[10px]"
                               />
@@ -327,7 +327,7 @@ const Header = ({ activeHeading }) => {
                 {isAuthenticated ? (
                   <Link to="/profile">
                     <img
-                       src={`${user?.avatar?.url}`}
+                      src={`${user?.avatar?.url}`}
                       alt=""
                       className="w-[70px] h-[70px] rounded-full border-[2px] border-[#2E7D5B]"
                     />
@@ -352,6 +352,11 @@ const Header = ({ activeHeading }) => {
             </div>
           </div>
         )}
+        {/* Cart Popup */}
+        {openCart && <Cart setOpenCart={setOpenCart} />}
+
+        {/* Wishlist Popup */}
+        {openWishList && <WishList setOpenWishList={setOpenWishList} />}
       </div>
     </>
   );
