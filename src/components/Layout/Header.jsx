@@ -248,14 +248,27 @@ const Header = ({ activeHeading }) => {
               />
             </Link>
           </div>
-          <div>
-            <div className="relative mr-[20px] mt-3">
-              <AiOutlineShoppingCart
-                size={30}
-                onClick={() => setOpenCart(true)}
-              />
-              <span className="absolute right-0 top-0 rounded-full bg-[#E76F51] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
-                {cart && cart.length}
+
+          <div className="flex items-center h-[60px] gap-4 mr-4">
+            {/* Cart */}
+            <div
+              className="relative cursor-pointer"
+              onClick={() => setOpenCart(true)}
+            >
+              <AiOutlineShoppingCart size={28} />
+              <span className="absolute -top-2 -right-2 rounded-full bg-[#E76F51] w-4 h-4 text-white text-[10px] flex items-center justify-center">
+                {cart?.length}
+              </span>
+            </div>
+
+            {/* Wishlist */}
+            <div
+              className="relative cursor-pointer"
+              onClick={() => setOpenWishList(true)}
+            >
+              <AiOutlineHeart size={28} />
+              <span className="absolute -top-2 -right-2 rounded-full bg-[#E76F51] w-4 h-4 text-white text-[10px] flex items-center justify-center">
+                {wishlist?.length}
               </span>
             </div>
           </div>
@@ -266,18 +279,6 @@ const Header = ({ activeHeading }) => {
           <div className="fixed w-full bg-[#0000005f] z-20 h-full top-0 left-0">
             <div className="fixed w-[60%] bg-[#FFFFFF] h-screen top-0 left-0 z-10 overflow-y-scroll">
               <div className="w-full justify-between flex pr-3">
-                <div>
-                  <div className="relative mr-[15px]">
-                    <AiOutlineHeart
-                      size={30}
-                      className="mt-5 ml-3"
-                      onClick={() => setOpenWishList(true)}
-                    />
-                    <span className="absolute right-0 top-0 rounded-full bg-[#E76F51] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
-                      {wishlist && wishlist.length}
-                    </span>
-                  </div>
-                </div>
                 <RxCross1
                   size={25}
                   className="ml-4  mt-5"

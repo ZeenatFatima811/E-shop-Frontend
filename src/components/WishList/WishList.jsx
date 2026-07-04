@@ -21,7 +21,7 @@ const WishList = ({ setOpenWishList }) => {
   };
 
   const addToCartHandler = (data) => {
-    const newData = {...data, qty:1};
+    const newData = { ...data, qty: 1 };
     dispatch(addToCart(newData));
     toast.success("Item added to cart successfully!");
     setOpenWishList(false);
@@ -29,7 +29,9 @@ const WishList = ({ setOpenWishList }) => {
 
   return (
     <div className="fixed top-0 left-0 w-full bg-[#0000004b] h-screen z-10 ">
-      <div className="fixed top-0 right-0 min-h-full w-[30%] 800px:w-[60%] bg-white flex flex-col justify-between shadow-sm pl-4">
+      <div
+        className="fixed top-0 right-0 min-h-full w-[80%] 500px:w-[70%] 800px:w-[50%] 1000px:w-[35%] 1200px:w-[30%] bg-white flex flex-col justify-between shadow-sm pl-4"
+      >
         {wishlist && wishlist.length === 0 ? (
           <div className="w-full h-screen flex items-center justify-center">
             <div className="flex w-full justify-end pt-5 pr-5 fixed top-3 right-3">
@@ -66,7 +68,8 @@ const WishList = ({ setOpenWishList }) => {
                   <CartSingle
                     key={index}
                     data={i}
-                    removeFromWishlistHandler={removeFromWishlistHandler} addToCartHandler={addToCartHandler}
+                    removeFromWishlistHandler={removeFromWishlistHandler}
+                    addToCartHandler={addToCartHandler}
                   />
                 ))}
             </div>
@@ -105,7 +108,7 @@ const CartSingle = ({ data, removeFromWishlistHandler, addToCartHandler }) => {
             size={20}
             className="cursor-pointer"
             title="Add to cart"
-            onClick={()=>addToCartHandler(data)}
+            onClick={() => addToCartHandler(data)}
           />
         </div>
       </div>
